@@ -1,0 +1,95 @@
+Certainly! Below is a Product Requirements Document (PRD) based on the MVP feature list we discussed for your M&A market intelligence tool.
+
+# Product Requirements Document (PRD)  
+## M&A Market Intelligence MVP
+
+### 1. **Purpose**  
+Build a Minimum Viable Product (MVP) of an M&A market intelligence tool to facilitate deal sourcing, target identification, and due diligence using a combination of manual/bulk data exports from paid sources (Mergermarket, Preqin, etc.) and free public data (regulatory filings, press releases, index lists). This MVP aims to demonstrate core value with limited automation and no API integrations.
+
+### 2. **Scope**  
+Support M&A teams, investment professionals, and analysts in discovering relevant deals, screening targets, and performing initial due diligence by consolidating deal intelligence from heterogeneous data sources.
+
+### 3. **Key Features**
+
+#### 3.1 Data Ingestion and Update Management  
+- Ability to manually import bulk data files (CSV, Excel) exported from paid sources like Mergermarket, Preqin.  
+- Automated or manual import of public filings from SEC EDGAR, ESMA, CNMV, BaFin.  
+- Upload and maintain current index constituent lists (S&P 500, IBEX 35, DAX, etc.) from official sources for target filtering.  
+- Scraper or upload module for press releases and company website news monitoring.
+
+#### 3.2 Deal Sourcing & Alerts  
+- Keyword-driven detection/search of deal events and triggers across all ingested data (e.g., “acquisition,” “merger,” “investment”).  
+- Configurable alerts delivered by email or in-app notifications for new deals filtered by geography, sector, company size, and index membership.  
+
+#### 3.3 Target Screening & Identification  
+- Multi-criteria search and filtering capability (sector, geography, financial thresholds, index inclusion, keywords).  
+- Tagging system for entities such as “potential target,” “active acquirer,” or “recent transaction participant.”  
+- View basic transaction history linked to companies or entities.
+
+#### 3.4 Due Diligence Light  
+- Display extracted deal facts from filings and press releases: counterparties, deal values (where disclosed), summarized deal descriptions.  
+- Highlight “red flags” such as litigation mentions, regulatory actions, or management turnover from publicly available data and news sources.
+
+#### 3.5 Dashboard & Reporting  
+- A clean, intuitive dashboard showcasing recent deal flow, sector and regional activity heatmaps, and deal summary metrics.  
+- Export capabilities to generate CSV, Excel, or PDF reports based on filtered deal lists or flagged events.
+
+#### 3.6 Workflow and Collaboration  
+- “Watchlist” functionality allowing users to bookmark and save companies or deals for follow-up.  
+- Internal notes/comments fields for collaborative deal tracking and observations.  
+- Log and display data provenance metadata such as import date and source information for transparency.
+
+#### 3.7 User Management & Permissions  
+- Basic user authentication with login system.  
+- Permission levels for data viewing, uploading, export privileges to support multiple users securely.
+
+### 4. **Out of Scope for MVP**
+- Real-time API integrations with paid data providers.  
+- Advanced AI/ML-powered predictive analytics or automated document processing.  
+- Deep integration with third-party CRMs or BI tools (possible future enhancement).  
+- Complex workflow automation or pipeline management modules.
+
+### 5. **Success Criteria**
+
+- Ability to demonstrate consistent ingestion and consolidation of manual data exports and public filings.  
+- Users can quickly filter and locate relevant deals or targets within a selected index or sector.  
+- Alerts notify users of new deals based on configurable keywords and filters.  
+- Users can export and share filtered deal lists and reports in common file formats.  
+- Positive early feedback from target users on usability and time savings in deal sourcing and screening workflows.
+
+### 6. **Milestones & Timeline**
+
+| Phase                | Description                              | Target Date         |
+|----------------------|------------------------------------------|---------------------|
+| Requirements Finalization   | Detailed feature spec and UX designs    | Week 1              |
+| Data Ingestion Module       | Manual import tools for paid and free data | Week 3              |
+| Deal Sourcing & Alerting    | Keyword alerts and filtering UI          | Week 5              |
+| Target Screening & Tagging  | Search & tag features                     | Week 7              |
+| Due Diligence Facts Display | Red flag highlighting, deal summaries    | Week 8              |
+| Dashboard & Reporting       | Basic visualization and export functions  | Week 10             |
+| User Management            | Login and permissions                      | Week 11             |
+| MVP Internal Testing        | QA and bug fixes                         | Week 12             |
+| Pilot Deployment            | User trial and feedback collection       | Week 13             |
+
+### 7. **Dependencies**
+
+- Access to manual data exports from paid sources (Mergermarket, Preqin).  
+- Availability of public filings and index data sources.  
+- Tools/libraries for web scraping press releases and company news (optional for MVP).  
+- Authentication framework and database backend for data storage.
+
+### 8. **Risks & Mitigations**
+
+- **Data freshness** may be delayed due to manual upload cadence — mitigate with a clear upload schedule and notifications.  
+- **Data integration inconsistency** among heterogeneous sources — implement robust entity reconciliation and metadata tracking.  
+- **Limited automation** may reduce real-time responsiveness — focus MVP on core value of consolidated intelligence and user-driven discovery.
+
+### 9. **Glossary**
+
+- **M&A:** Mergers and Acquisitions  
+- **Mergermarket:** Paid database providing proprietary M&A data  
+- **Preqin:** Paid database for private equity, venture capital deals  
+- **Index Constituents:** Lists of companies included in stock indices like S&P 500  
+- **Red Flags:** Indicators of risk such as litigation or regulatory issues  
+
+If you want, I can help you develop wireframes or a more detailed technical specification next. Would you like me to proceed?
