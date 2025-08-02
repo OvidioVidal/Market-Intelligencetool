@@ -83,8 +83,9 @@ def start_streamlit():
     print("🛑 Press Ctrl+C to stop the application\n")
     
     try:
-        # Start Streamlit with main_app.py
-        subprocess.run(["streamlit", "run", "main_app.py", "--server.port", "8501"])
+        # Start Streamlit with optimized app
+        print("Using optimized main application for better performance...")
+        subprocess.run(["streamlit", "run", "optimized_main_app.py", "--server.port", "8501"])
     except KeyboardInterrupt:
         print("\n👋 Application stopped by user")
     except FileNotFoundError:
@@ -98,6 +99,19 @@ def start_streamlit():
 
 def main():
     """Main entry point"""
+    import sys
+    
+    # Check for performance flag
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "--perf" or sys.argv[1] == "--performance":
+            print("🧪 Running performance monitor...")
+            subprocess.run([sys.executable, "performance_monitor.py"])
+            return True
+        elif sys.argv[1] == "--fast":
+            print("⚡ Starting ultra-fast mode...")
+            subprocess.run(["streamlit", "run", "app_fast.py", "--server.port", "8501"])
+            return True
+    
     # Check if we're in the right directory
     required_files = ['main_app.py', 'enhanced_data_ingestion.py', 'requirements.txt']
     missing_files = [f for f in required_files if not Path(f).exists()]

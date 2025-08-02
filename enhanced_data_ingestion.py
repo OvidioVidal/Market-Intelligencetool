@@ -15,9 +15,10 @@ class EnhancedDataIngestion:
     Supports manual imports from Mergermarket, Preqin, SEC filings, and index data
     """
     
-    def __init__(self, db_path: str = "market_intelligence.db"):
+    def __init__(self, db_path: str = "market_intelligence.db", auto_init: bool = True):
         self.db_path = db_path
-        self.init_database()
+        if auto_init:
+            self.init_database()
         
         # Predefined schemas for different data sources
         self.data_schemas = {

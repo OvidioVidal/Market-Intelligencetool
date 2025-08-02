@@ -2,15 +2,32 @@
 
 ## Quick Start Options
 
-### ⚡ Option 1: One-Command Start (Recommended)
+### ⚡ Option 1: Optimized App (Recommended)
 ```bash
 python3 run.py
 ```
 This will:
 - Check and install dependencies
 - Initialize the database
-- Start the Streamlit application
+- Start the **optimized** Streamlit application
 - Open browser to http://localhost:8501
+
+### 🚀 Option 2: Ultra-Fast Mode (Instant Start)
+```bash
+python3 run.py --fast
+```
+- Loads in under 2 seconds
+- Uses cached sample data
+- Essential features only
+- Perfect for demos
+
+### 🧪 Option 3: Performance Monitor
+```bash
+python3 run.py --perf
+```
+- Test app performance
+- Optimize database
+- Generate performance report
 
 ### 🔧 Option 2: Manual Setup
 ```bash
