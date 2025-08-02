@@ -44,7 +44,8 @@ def main():
     if install_requirements():
         print("\n🎉 Setup completed successfully!")
         print("\n🚀 To start the application:")
-        print("   streamlit run main_app.py")
+        print("   Option 1 (Recommended): python run.py")
+        print("   Option 2 (Manual): streamlit run main_app.py")
         print("\n🌐 The app will open at: http://localhost:8501")
         print("\n📚 See README.md for usage instructions")
     else:

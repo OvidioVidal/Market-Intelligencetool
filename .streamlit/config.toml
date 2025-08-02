@@ -1,0 +1,27 @@
+[server]
+port = 8501
+address = "localhost"
+maxUploadSize = 200
+runOnSave = true
+allowRunOnSave = true
+
+[theme]
+base = "light"
+primaryColor = "#1f77b4"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+
+[browser]
+gatherUsageStats = false
+serverAddress = "localhost"
+serverPort = 8501
+
+[global]
+developmentMode = false
+logLevel = "info"
+
+[client]
+caching = true
+displayEnabled = true
+showErrorDetails = true

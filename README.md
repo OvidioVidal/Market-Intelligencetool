@@ -46,6 +46,10 @@ python3 setup.py
 
 4. Start the application:
 ```bash
+# Option 1: One-command start (recommended)
+python run.py
+
+# Option 2: Manual start
 streamlit run main_app.py
 ```
 

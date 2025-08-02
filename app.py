@@ -76,7 +76,7 @@ def main():
     elif page == "Company Research":
         show_company_research(filtered_data)
     elif page == "Data Management":
-        show_data_management()
+        show_data_management(filtered_data)
 
 def apply_filters(data, industry, date_range, min_value, max_value):
     """Apply global filters to the data"""
@@ -148,7 +148,7 @@ def show_dashboard(data):
         )
         st.plotly_chart(fig2, use_container_width=True)
 
-def show_deal_tracker():
+def show_deal_tracker(data):
     st.header("🎯 Deal Tracker")
     
     # Deal input form
@@ -179,7 +179,7 @@ def show_deal_tracker():
     df_deals = pd.DataFrame(deals_data)
     st.dataframe(df_deals, use_container_width=True)
 
-def show_market_analysis():
+def show_market_analysis(data):
     st.header("📊 Market Analysis")
     
     # Industry analysis
@@ -237,7 +237,7 @@ def show_market_analysis():
         fig.update_layout(title="Market Trends Over Time")
         st.plotly_chart(fig, use_container_width=True)
 
-def show_company_research():
+def show_company_research(data):
     st.header("🔍 Company Research")
     
     col1, col2 = st.columns([2, 1])
@@ -288,6 +288,60 @@ def show_company_research():
         watchlist = ["TechCorp", "HealthPlus", "FinanceMax"]
         for company in watchlist:
             st.write(f"• {company}")
+
+def show_data_management(data):
+    """Simple data management interface"""
+    st.header("📁 Data Management")
+    
+    st.subheader("📊 Current Data Overview")
+    
+    # Display data summary
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("Total Deals", len(data.get('deals', [])))
+    with col2:
+        st.metric("Total Companies", len(data.get('companies', [])))
+    with col3:
+        st.metric("Data Sources", "Sample Data")
+    
+    # Show data tables
+    st.subheader("📋 Data Tables")
+    
+    tab1, tab2 = st.tabs(["Deals", "Companies"])
+    
+    with tab1:
+        if 'deals' in data and not data['deals'].empty:
+            st.dataframe(data['deals'].head(20), use_container_width=True)
+        else:
+            st.info("No deals data available")
+    
+    with tab2:
+        if 'companies' in data and not data['companies'].empty:
+            st.dataframe(data['companies'].head(20), use_container_width=True)
+        else:
+            st.info("No companies data available")
+    
+    # File upload interface
+    st.subheader("📤 Upload Data")
+    uploaded_file = st.file_uploader(
+        "Upload CSV/Excel file",
+        type=['csv', 'xlsx'],
+        help="Upload deal data, company information, or other relevant files"
+    )
+    
+    if uploaded_file is not None:
+        try:
+            if uploaded_file.name.endswith('.csv'):
+                df = pd.read_csv(uploaded_file)
+            else:
+                df = pd.read_excel(uploaded_file)
+            
+            st.success(f"Successfully loaded {len(df)} rows")
+            st.dataframe(df.head(), use_container_width=True)
+            
+        except Exception as e:
+            st.error(f"Error loading file: {str(e)}")
 
 if __name__ == "__main__":
     main()
